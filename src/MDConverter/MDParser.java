@@ -1,3 +1,5 @@
+package MDConverter;
+
 public final class MDParser {
 
     public static void main(String[] args) {
