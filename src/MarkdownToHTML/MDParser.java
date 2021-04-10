@@ -1,4 +1,4 @@
-package MDConverter;
+package MarkdownToHTML;
 
 public final class MDParser {
 
