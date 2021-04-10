@@ -1,2 +1,0 @@
-### YummyPotatoPie
-#### privatepotatonoobofthecentury@gmail.com
