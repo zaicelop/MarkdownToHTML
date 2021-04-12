@@ -2,7 +2,7 @@ package MarkdownToHTML;
 
 interface IHandler {
 
-    void setNext(Handler handler);
+    void setNext(IHandler handler);
 
     void handle();
 

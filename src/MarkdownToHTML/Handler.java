@@ -1,6 +1,6 @@
 package MarkdownToHTML;
 
-abstract class Handler {
+abstract class Handler implements IHandler {
 
     private IHandler nextHandler;
 
