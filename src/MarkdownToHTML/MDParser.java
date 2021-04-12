@@ -46,6 +46,8 @@ public final class MDParser extends Handler {
         }
         separatedStrings.add(temp);
 
+        textStream.close();
+
         return separatedStrings;
     }
 
