@@ -1,13 +1,16 @@
 package MarkdownToHTML;
 
 import java.io.File;
+import java.io.FileReader;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
-public final class MDParser extends Handler {
-
-
+/**
+ * Class requried reading Markdown files
+ */
+public class MDParser extends Handler {
 
     public MDParser() {
 
@@ -23,42 +26,46 @@ public final class MDParser extends Handler {
 
     /**
      *
-     * @param filePath
-     * @return
-     * @throws Exception
+     * @param filePath path of the Markdown file
+     * @return Separated strings
      */
-    private List<String> parse(String filePath) throws Exception {
+    protected String[] parse(String filePath) {
         List<String> separatedStrings = new ArrayList<String>();
         File file = new File(filePath);
-        Scanner textStream = new Scanner(file);
 
-        String temp = "";
-        String currentSymbol = textStream.next();
-        while (currentSymbol != null) {
-            if (isSeparator(Character.valueOf(currentSymbol.charAt(0)))) {
-                separatedStrings.add(temp);
-                temp = "";
+        try (FileReader textStream = new FileReader(file)){
+
+            String temp = "";
+            int currentSymbol;
+            while ((currentSymbol = textStream.read()) != -1) {
+                if (isSeparator((char)currentSymbol) && !temp.isEmpty()) {
+                    separatedStrings.add(temp);
+                    temp = "";
+                }
+                else if (!isSeparator((char)currentSymbol)){
+                    temp += (char)currentSymbol;
+                }
             }
-            else {
-                temp += currentSymbol;
-            }
-            currentSymbol = textStream.next();
+            separatedStrings.add(temp);
+
         }
-        separatedStrings.add(temp);
+        catch (FileNotFoundException e) {
+            e.getMessage();
+        }
+        catch (IOException e) {
 
-        textStream.close();
+        }
 
-        return separatedStrings;
+        return separatedStrings.toArray(new String[separatedStrings.size()]);
     }
 
     /**
      *
-     * @param textCharacter
-     * @return
+     * @param textCharacter ascii symbol
+     * @return True if symbol is separator, else return False
      */
-    private boolean isSeparator(Character textCharacter) {
-        if (Character.getNumericValue(textCharacter.charValue()) >= 0 &&
-                Character.getNumericValue(textCharacter.charValue()) <= 32)
+    protected boolean isSeparator(char textCharacter) {
+        if (textCharacter == ' ' || textCharacter == '\n' || textCharacter == '\t' || textCharacter == '\r')
             return true;
         return false;
     }
