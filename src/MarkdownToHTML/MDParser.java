@@ -46,7 +46,8 @@ public class MDParser extends Handler {
                     temp += (char)currentSymbol;
                 }
             }
-            separatedStrings.add(temp);
+            if (temp != "")
+                separatedStrings.add(temp);
 
         }
         catch (FileNotFoundException e) {
