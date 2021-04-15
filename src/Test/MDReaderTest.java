@@ -1,10 +1,10 @@
 package Test;
 
-import MarkdownToHTML.MDParser;
+import MarkdownToHTML.MDReader;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class MDParserTest extends MDParser {
+public class MDReaderTest extends MDReader {
 
     @Test
     public void parseFirstTest() {
