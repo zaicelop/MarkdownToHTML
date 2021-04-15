@@ -2,7 +2,6 @@ package MarkdownToHTML;
 
 import java.io.File;
 import java.io.FileReader;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +29,7 @@ public class MDParser extends Handler {
      * @return Separated strings
      */
     protected String[] parse(String filePath) {
-        List<String> separatedStrings = new ArrayList<String>();
+        List<String> separatedStrings = new ArrayList<>();
         File file = new File(filePath);
 
         try (FileReader textStream = new FileReader(file)){
@@ -46,15 +45,12 @@ public class MDParser extends Handler {
                     temp += (char)currentSymbol;
                 }
             }
-            if (temp != "")
+            if (temp.equals(""))
                 separatedStrings.add(temp);
 
         }
-        catch (FileNotFoundException e) {
-            e.getMessage();
-        }
         catch (IOException e) {
-
+            System.out.println("Exception in MDParser.parse() method");
         }
 
         return separatedStrings.toArray(new String[separatedStrings.size()]);
@@ -66,9 +62,7 @@ public class MDParser extends Handler {
      * @return True if symbol is separator, else return False
      */
     protected boolean isSeparator(char textCharacter) {
-        if (textCharacter == ' ' || textCharacter == '\n' || textCharacter == '\t' || textCharacter == '\r')
-            return true;
-        return false;
+        return textCharacter == ' ' || textCharacter == '\n' || textCharacter == '\t' || textCharacter == '\r';
     }
 
 }
