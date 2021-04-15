@@ -7,6 +7,6 @@ interface IHandler {
 
     void setNext(IHandler handler);
 
-    void handle();
+    Object handle(Object request);
 
 }

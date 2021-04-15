@@ -12,6 +12,6 @@ abstract class Handler implements IHandler {
         this.nextHandler = nextHandler;
     }
 
-    public abstract void handle();
+    public abstract Object handle(Object request);
 
 }

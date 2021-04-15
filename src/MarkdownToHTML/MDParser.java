@@ -19,8 +19,9 @@ public class MDParser extends Handler {
      *
      */
     @Override
-    public void handle() {
+    public Object handle(Object request) {
         System.out.println("Dimite mihi quonam ego sum optimus");
+        return new Object();
     }
 
     /**
