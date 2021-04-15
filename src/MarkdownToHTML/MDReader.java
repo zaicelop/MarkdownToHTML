@@ -9,9 +9,9 @@ import java.util.List;
 /**
  * Class requried reading Markdown files
  */
-public class MDParser extends Handler {
+public class MDReader extends Handler {
 
-    public MDParser() {
+    public MDReader() {
 
     }
 
