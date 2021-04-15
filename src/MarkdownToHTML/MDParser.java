@@ -45,7 +45,7 @@ public class MDParser extends Handler {
                     temp += (char)currentSymbol;
                 }
             }
-            if (temp.equals(""))
+            if (!temp.equals(""))
                 separatedStrings.add(temp);
 
         }
