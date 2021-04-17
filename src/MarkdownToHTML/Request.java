@@ -7,6 +7,6 @@ public class Request {
     }
     public Request() {}
     public Request(String[] data){
-        Request request = new Request(data);
+        this.data = data;
     }
 }
