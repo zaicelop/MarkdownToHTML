@@ -8,5 +8,4 @@ interface IHandler {
     void setNext(IHandler handler);
 
     Object handle(Object request);
-
 }

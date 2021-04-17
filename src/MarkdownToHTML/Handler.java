@@ -13,5 +13,4 @@ abstract class Handler implements IHandler {
     }
 
     public abstract Object handle(Object request);
-
 }
