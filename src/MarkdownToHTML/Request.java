@@ -1,6 +1,6 @@
 package MarkdownToHTML;
 
-public class Request {
+public final class Request {
     public String[] data;
     public void setData(String[] data){
         this.data = data;
