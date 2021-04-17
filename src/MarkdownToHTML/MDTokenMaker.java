@@ -11,4 +11,8 @@ class MDTokenMaker extends Handler {
         return new Object();
     }
 
+    @Override
+    public void handle(Request request) {
+
+    }
 }

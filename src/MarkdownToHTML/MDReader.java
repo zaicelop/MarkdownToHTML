@@ -67,4 +67,8 @@ public class MDReader extends Handler {
         return textCharacter == ' ' || textCharacter == '\n' || textCharacter == '\t' || textCharacter == '\r';
     }
 
+    @Override
+    public void handle(Request request) {
+
+    }
 }
